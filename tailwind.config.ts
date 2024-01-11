@@ -27,7 +27,7 @@ const config: Config = {
         'brand-blue': '#3294f8',
       },
       fontFamily: {
-        'Nunito': ['Nunito', 'cursive'],
+        'Nunito': ['Nunito', 'sans-serif'],
       },
     },
   },
