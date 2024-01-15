@@ -1,8 +1,8 @@
 export default function Card() {
   return (
-    <div className="flex flex-col p-8 bg-base-post rounded-lg hover:border-base-label hover:border-2">
-      <div className="flex flex-row justify-between">
-        <h3 className="font-bold text-base-title text-xl">JavaScript data types and data structures</h3>
+    <div className="w-full flex flex-col p-8 bg-base-post rounded-lg hover:border-base-label hover:border-2">
+      <div className="flex flex-row gap-4 items-center justify-between">
+        <strong className="font-bold text-base-title text-xl">JavaScript data types and data structures</strong>
         <span className="text-base-span text-sm">Há 1 dia</span>
       </div>
       <div className="flex pt-5">

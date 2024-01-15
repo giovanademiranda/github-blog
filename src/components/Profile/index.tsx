@@ -12,14 +12,12 @@ export default function Profile() {
         <Image src={avatar} alt='avatar' priority />
       </div>
       <div className="flex flex-col">
-        <div className="flex flex-row justify-between">
+        <div className="w-full flex flex-row justify-between">
           <h2 className='font-medium text-2xl leading-normal'>Cameron Williamson</h2>
-          <div className="flex flex-row gap-2 hover:underline hover:text-brand-blue">
-            <Link href={'https://github.com/'}>
-              <span className='text-brand-blue font-bold text-xs'>GITHUB</span>
-              <ArrowSquareOut size={12} className='text-brand-blue' />
-            </Link>
-          </div>
+          <Link className="hover:underline hover:text-brand-blue" href={'https://github.com/'}>
+            <span className=' text-brand-blue font-bold text-xs'>GITHUB <ArrowSquareOut size={12} className='text-brand-blue' weight='bold' />
+            </span>
+          </Link>
         </div>
         <div className="flex pt-2">
           <p className='text-base-text text-base
