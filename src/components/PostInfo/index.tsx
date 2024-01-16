@@ -1,16 +1,11 @@
 'use client'
 
 import { ArrowSquareOut, Buildings, GithubLogo, Users } from '@phosphor-icons/react'
-import Image from 'next/image'
 import Link from 'next/link'
-import avatar from '../../assets/avatar.svg'
 
-export default function Profile() {
+export default function PostInfo() {
   return (
     <div className="flex w-[65%] justify-center bg-base-profile rounded-lg p-8 gap-8">
-      <div className="flex w-[30%]">
-        <Image src={avatar} alt='avatar' priority />
-      </div>
       <div className="flex flex-col">
         <div className="w-full flex flex-row text-justify justify-between">
           <h2 className='font-medium text-2xl leading-normal'>Cameron Williamson</h2>
