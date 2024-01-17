@@ -7,16 +7,16 @@ import avatar from '../../assets/avatar.svg'
 
 export default function Profile() {
   return (
-    <div className="flex w-[65%] justify-center bg-base-profile rounded-lg p-8 gap-8">
-      <div className="flex w-[30%]">
+    <div className="max-w-4xl w-full flex justify-center bg-base-profile rounded-lg p-8 gap-4">
+      <div className="flex w-[35%]">
         <Image src={avatar} alt='avatar' priority />
       </div>
       <div className="flex flex-col">
-        <div className="w-full flex flex-row justify-between">
+        <div className="w-full flex flex-row text-justify justify-between">
           <h2 className='font-medium text-2xl leading-normal'>Cameron Williamson</h2>
-          <Link className="hover:underline hover:text-brand-blue" href={'https://github.com/'}>
-            <span className=' text-brand-blue font-bold text-xs'>GITHUB <ArrowSquareOut size={12} className='text-brand-blue' weight='bold' />
-            </span>
+          <Link className="flex gap-2 hover:underline hover:text-brand-blue" href={'https://github.com/'}>
+            <span className='text-brand-blue font-bold text-xs'>GITHUB</span>
+            <ArrowSquareOut size={12} className='text-brand-blue' weight='bold' />
           </Link>
         </div>
         <div className="flex pt-2">
