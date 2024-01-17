@@ -1,8 +1,15 @@
 import Card from "@/components/Card";
 import Header from "@/components/Header";
 import Link from "next/link";
+import { getUserProfile, searchIssues } from "./api/services";
 
-export default function Home() {
+export default function Page() {
+  const data = useServerData(async () => {
+    const userProfile = await getUserProfile('username');
+    const issues = await searchIssues('owner/repo', 'search term');
+    return { userProfile, issues };
+  });
+
   return (
     <>
       <Header type="blog" />
@@ -28,3 +35,7 @@ export default function Home() {
     </>
   )
 }
+function useServerData(arg0: () => Promise<{ userProfile: any; issues: any; }>) {
+  throw new Error("Function not implemented.");
+}
+
