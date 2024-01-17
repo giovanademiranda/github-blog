@@ -1,39 +1,42 @@
 'use client'
 
-import { ArrowSquareOut, Buildings, GithubLogo, Users } from '@phosphor-icons/react'
+import { ArrowSquareOut, Calendar, CaretLeft, ChatCircle, GithubLogo } from '@phosphor-icons/react'
 import Link from 'next/link'
 
 export default function PostInfo() {
   return (
-    <div className="flex w-[65%] justify-center bg-base-profile rounded-lg p-8 gap-8">
-      <div className="flex flex-col">
-        <div className="w-full flex flex-row text-justify justify-between">
-          <h2 className='font-medium text-2xl leading-normal'>Cameron Williamson</h2>
-          <Link className="flex gap-2 hover:underline hover:text-brand-blue" href={'https://github.com/'}>
-            <span className='text-brand-blue font-bold text-xs'>GITHUB</span>
-            <ArrowSquareOut size={12} className='text-brand-blue' weight='bold' />
-          </Link>
+    <div className="flex flex-col w-full justify-center bg-base-profile rounded-lg p-8">
+      <div className="w-full flex flex-row justify-between items-center pb-5">
+        <Link className="flex gap-2 hover:underline hover:text-brand-blue" href={'/'}>
+          <CaretLeft size={12} className='text-brand-blue' weight='bold' />
+          <p className='text-brand-blue text-xs font-bold'>VOLTAR</p>
+        </Link>
+        <Link className="flex hover:underline hover:text-brand-blue gap-2" href={'https://github.com/'}>
+          <span className='text-brand-blue font-bold text-xs'>GITHUB</span>
+          <ArrowSquareOut size={12} className='text-brand-blue' weight='bold' />
+        </Link>
+      </div>
+      <div className="w-full flex flex-row pb-2">
+        <p className='text-base-title text-2xl font-medium'>
+          JavaScript data types and data structures
+        </p>
+      </div>
+      <div className="flex flex-row gap-6">
+        <div className="flex gap-2 justify-center items-center">
+          <GithubLogo size={18} weight='fill' className='text-base-label' />
+          <p className='text-base-span text-base'>cameronwll</p>
         </div>
-        <div className="flex pt-2">
-          <p className='text-base-text text-base
-      '>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
+
+        <div className="flex gap-2 justify-center items-center">
+          <Calendar size={18} weight='fill' className='text-base-label' />
+          <p className='text-base-span text-base'>Há</p>
+          <span className='text-base-span text-base'>1 dia</span>
         </div>
-        <div className="flex flex-row pt-6 gap-6">
-          <div className="flex gap-2 justify-center items-center">
-            <GithubLogo size={18} weight='fill' className='text-base-label' />
-            <p className='text-base-subtitle text-base'>cameronwll</p>
-          </div>
 
-          <div className="flex gap-2 justify-center items-center">
-            <Buildings size={18} weight='fill' className='text-base-label' />
-            <p className='text-base-subtitle text-base'>Rocketseat</p>
-          </div>
-
-          <div className="flex gap-2 justify-center items-center">
-            <Users size={18} weight='fill' className='text-base-label' />
-            <p className='text-base-subtitle text-base'>32</p>
-            <p className='text-base-subtitle text-base'>seguidores</p>
-          </div>
+        <div className="flex gap-2 justify-center items-center">
+          <ChatCircle size={18} weight="fill" className='text-base-label' />
+          <p className='text-base-span text-base'>5</p>
+          <p className='text-base-span text-base'>comentários</p>
         </div>
       </div>
     </div>
