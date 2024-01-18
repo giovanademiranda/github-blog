@@ -1,3 +1,8 @@
+export interface Issue {
+  title: string;
+  body: string;
+}
+
 export default function Card() {
   return (
     <div className="w-full flex flex-col p-8 bg-base-post rounded-lg hover:border-base-label hover:border-2">

@@ -3,12 +3,32 @@ import background from '../../assets/background.svg';
 import PostInfo from '../PostInfo';
 import Profile from '../Profile';
 
-interface HeaderProps {
+export interface HeaderProps {
   type?: 'blog' | 'post';
+  userProfile?: {
+    avatar_url: string;
+    name: string;
+    username: string;
+    followers: number;
+    company?: string;
+    bio?: string;
+  };
 }
 
-const Header: React.FC<HeaderProps> = ({ type }) => {
-  const content = type === 'post' ? <PostInfo /> : <Profile />;
+
+export default function Header({ type, userProfile }: HeaderProps) {
+  const profileContent = userProfile && (
+    <Profile
+      avatar_url={userProfile.avatar_url}
+      name={userProfile.name}
+      username={userProfile.username}
+      followers={userProfile.followers}
+      company={userProfile.company}
+      bio={userProfile.bio}
+    />
+  );
+
+  const content = type === 'post' ? <PostInfo /> : profileContent;
 
   return (
     <header className="w-full flex justify-center items-center">
@@ -21,5 +41,3 @@ const Header: React.FC<HeaderProps> = ({ type }) => {
     </header>
   );
 }
-
-export default Header;
