@@ -1,18 +1,33 @@
+'use client'
+
 import Card from "@/components/Card";
 import Header from "@/components/Header";
+import { ProfileProps } from "@/components/Profile";
 import Link from "next/link";
-import { getUserProfile, searchIssues } from "./api/services";
+import { useEffect, useState } from "react";
+import { getUserProfile } from "./api/services";
 
-export default function Page() {
-  const data = useServerData(async () => {
-    const userProfile = await getUserProfile('username');
-    const issues = await searchIssues('owner/repo', 'search term');
-    return { userProfile, issues };
-  });
+const GITHUB_USERNAME = 'giovanademiranda';
+
+export default function Home() {
+  const [userProfile, setUserProfile] = useState<ProfileProps | undefined>(undefined);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const profileData = await getUserProfile(GITHUB_USERNAME);
+        setUserProfile(profileData);
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <>
-      <Header type="blog" />
+      <Header type="blog" userProfile={userProfile} />
       <div className="max-w-4xl w-full flex flex-col items-center justify-center">
         <div className="w-full flex flex-col gap-3">
           <div className="flex flex-row justify-between">
@@ -35,7 +50,3 @@ export default function Page() {
     </>
   )
 }
-function useServerData(arg0: () => Promise<{ userProfile: any; issues: any; }>) {
-  throw new Error("Function not implemented.");
-}
-

@@ -1,5 +1,3 @@
-'use client'
-
 import { ArrowSquareOut, Calendar, CaretLeft, ChatCircle, GithubLogo } from '@phosphor-icons/react'
 import Link from 'next/link'
 
