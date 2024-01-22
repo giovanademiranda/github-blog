@@ -13,10 +13,17 @@ export interface HeaderProps {
     company?: string;
     bio?: string;
   };
+  userPost: {
+    title: string;
+    login: string;
+    date: string;
+    comment?: string;
+    description?: string;
+  };
 }
 
 
-export default function Header({ type, userProfile }: HeaderProps) {
+export default function Header({ type, userProfile, userPost }: HeaderProps) {
   console.log(userProfile)
 
   const profileContent = userProfile && (
@@ -30,11 +37,21 @@ export default function Header({ type, userProfile }: HeaderProps) {
     />
   );
 
-  const content = type === 'post' ? <PostInfo /> : profileContent;
+  const postContent = userPost && (
+    <PostInfo
+      title={userPost.title}
+      login={userPost.login}
+      date={userPost.date}
+      comment={userPost.comment}
+      description={userPost.description}
+    />
+  )
+
+  const content = type === 'post' ? postContent : profileContent;
 
   return (
     <header className="w-full flex justify-center items-center">
-      <div className='flex flex-col items-center justify-center'>
+      <div className='w-full flex flex-col items-center justify-center'>
         <Image src={background} alt="Background" />
         <div className="flex justify-center items-center relative -top-24">
           {content}

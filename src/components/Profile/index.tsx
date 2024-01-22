@@ -28,19 +28,19 @@ export default async function Profile({ avatar_url, name, username, followers, c
   }
 
   return (
-    <div className="max-w-4xl w-full flex justify-center bg-base-profile rounded-lg p-8 gap-4">
-      <div className="flex w-[35%]">
-        <Image src={avatar_url} alt='avatar' priority width={150} height={150} />
+    <div className="max-w-4xl w-full flex bg-base-profile rounded-lg p-8 gap-6">
+      <div className="flex">
+        <Image src={avatar_url} alt='avatar' priority width={150} height={150} className='rounded-md' />
       </div>
       <div className="flex flex-col">
-        <div className="w-full flex flex-row text-justify justify-between">
+        <div className="w-full flex flex-row justify-between">
           <h2 className='font-medium text-2xl leading-normal'>{name}</h2>
-          <Link className="flex gap-2 hover:underline hover:text-brand-blue" href={`https://github.com/${username}`}>
+          <Link className="flex gap-2 justify-end hover:underline hover:text-brand-blue" href={`https://github.com/${username}`}>
             <span className='text-brand-blue font-bold text-xs'>GITHUB</span>
-            <ArrowSquareOut size={12} className='text-brand-blue' weight='bold' />
+            <ArrowSquareOut size={12} className='text-brand-blue font-bold' weight='bold' />
           </Link>
         </div>
-        <div className="flex pt-2">
+        <div className="flex pt-6">
           <p className='text-base-text text-base'>{bio}</p>
         </div>
         <div className="flex flex-row pt-6 gap-6">
