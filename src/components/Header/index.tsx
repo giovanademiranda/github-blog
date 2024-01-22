@@ -13,15 +13,13 @@ export interface HeaderProps {
     company?: string;
     bio?: string;
   };
-  userPost: {
+  userPost?: {
     title: string;
     login: string;
     date: string;
     comment?: string;
-    description?: string;
   };
 }
-
 
 export default function Header({ type, userProfile, userPost }: HeaderProps) {
   console.log(userProfile)
@@ -36,14 +34,13 @@ export default function Header({ type, userProfile, userPost }: HeaderProps) {
       bio={userProfile.bio}
     />
   );
-
+  console.log(userPost)
   const postContent = userPost && (
     <PostInfo
       title={userPost.title}
       login={userPost.login}
       date={userPost.date}
       comment={userPost.comment}
-      description={userPost.description}
     />
   )
 

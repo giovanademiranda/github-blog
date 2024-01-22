@@ -1,9 +1,10 @@
 import Header from "@/components/Header";
 
 export default function Post() {
+  const userPost = "github-blog";
   return (
     <>
-      <Header type="post" />
+      <Header type="post" userPost={{ title: userPost, login: "", date: "", comment: "" }} />
       <div className="max-w-4xl w-full flex items-center justify-center">
         <div className="w-full flex flex-col gap-3">
           <p className="text-base text-base-text text-justify">

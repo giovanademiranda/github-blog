@@ -18,7 +18,7 @@ export const getUserProfile = async (username: string) => {
   }
 };
 
-export const searchIssues = async (repo: string, term: string) => {
+export const searchIssues = async (repo: string, term: number) => {
   try {
     const query = encodeURIComponent(`${term} repo:${repo}`);
     const response = await fetch(`${GITHUB_API_URL}/search/issues?q=${query}`, { headers });

@@ -11,17 +11,19 @@ async function getUser(username: string) {
   return profileData
 }
 
-async function getIssue(repo: string, term: string) {
+async function getIssue(repo: string, term: number) {
   const issueData = await searchIssues(repo, term);
   return issueData;
 }
 
 export default async function Home() {
   const userProfile = await getUser(GITHUB_USERNAME)
-  const userPost = await getIssue('repo-name', 'search-term')
+  let userPost = await getIssue('github-blog', 15)
+
   if (!userProfile && !userPost) {
     return <div className="flex justify-center items-center m-96">
       <SpinnerGap className="rotate-45 animate-spin" size={64} weight="bold" />
+      <p className="font-bold text-base-subtitle text-2xl">Carregando</p>
     </div>
   }
   return (

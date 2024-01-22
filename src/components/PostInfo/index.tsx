@@ -7,7 +7,6 @@ export interface ProfileProps {
   login: string;
   date: string;
   comment?: string;
-  description?: string;
 }
 
 const GITHUB_USERNAME = 'giovanademiranda';
@@ -17,7 +16,7 @@ async function UserProfile(username: string) {
   return profileData
 }
 
-export default async function PostInfo({ title, login, date, comment, description }: ProfileProps) {
+export default async function PostInfo({ title, login, date, comment }: ProfileProps) {
   const ProfileUser = await UserProfile(GITHUB_USERNAME)
   if (!ProfileUser) {
     return <div className="flex justify-center items-center m-96">

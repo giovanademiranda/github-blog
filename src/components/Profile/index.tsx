@@ -30,7 +30,7 @@ export default async function Profile({ avatar_url, name, username, followers, c
   return (
     <div className="max-w-4xl w-full flex bg-base-profile rounded-lg p-8 gap-6">
       <div className="flex">
-        <Image src={avatar_url} alt='avatar' priority width={150} height={150} className='rounded-md' />
+        <Image src={avatar_url} alt='avatar' priority width={200} height={200} className='rounded-md' />
       </div>
       <div className="flex flex-col">
         <div className="w-full flex flex-row justify-between">
