@@ -1,33 +1,32 @@
-'use client'
-
 import Card from "@/components/Card";
 import Header from "@/components/Header";
-import { ProfileProps } from "@/components/Profile";
+import { SpinnerGap } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { getUserProfile } from "./api/services";
+import { getUserProfile, searchIssues } from "./api/services";
 
 const GITHUB_USERNAME = 'giovanademiranda';
 
-export default function Home() {
-  const [userProfile, setUserProfile] = useState<ProfileProps | undefined>(undefined);
+async function getUser(username: string) {
+  const profileData = await getUserProfile(GITHUB_USERNAME);
+  return profileData
+}
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const profileData = await getUserProfile(GITHUB_USERNAME);
-        setUserProfile(profileData);
-      } catch (error) {
-        console.error('Error fetching user profile:', error);
-      }
-    }
+async function getIssue(repo: string, term: string) {
+  const issueData = await searchIssues(repo, term);
+  return issueData;
+}
 
-    fetchData();
-  }, []);
-
+export default async function Home() {
+  const userProfile = await getUser(GITHUB_USERNAME)
+  const userPost = await getIssue('repo-name', 'search-term')
+  if (!userProfile && !userPost) {
+    return <div className="flex justify-center items-center m-96">
+      <SpinnerGap className="rotate-45 animate-spin" size={64} weight="bold" />
+    </div>
+  }
   return (
     <>
-      <Header type="blog" userProfile={userProfile} />
+      <Header type="blog" userProfile={userProfile} userPost={userPost} />
       <div className="max-w-4xl w-full flex flex-col items-center justify-center">
         <div className="w-full flex flex-col gap-3">
           <div className="flex flex-row justify-between">
