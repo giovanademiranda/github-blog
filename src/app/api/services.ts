@@ -6,6 +6,7 @@ const headers = {
 
 export const getUserProfile = async (username: string) => {
   try {
+    console.log(`${GITHUB_API_URL}/users/${username}`)
     const response = await fetch(`${GITHUB_API_URL}/users/${username}`, { headers });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

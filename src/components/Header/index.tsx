@@ -8,7 +8,7 @@ export interface HeaderProps {
   userProfile?: {
     avatar_url: string;
     name: string;
-    username: string;
+    login: string;
     followers: number;
     company?: string;
     bio?: string;
@@ -17,11 +17,13 @@ export interface HeaderProps {
 
 
 export default function Header({ type, userProfile }: HeaderProps) {
+  console.log(userProfile)
+
   const profileContent = userProfile && (
     <Profile
       avatar_url={userProfile.avatar_url}
       name={userProfile.name}
-      username={userProfile.username}
+      username={userProfile.login}
       followers={userProfile.followers}
       company={userProfile.company}
       bio={userProfile.bio}
