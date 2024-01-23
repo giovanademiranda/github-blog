@@ -17,7 +17,7 @@ export interface HeaderProps {
     title: string;
     login: string;
     date: string;
-    comment?: string;
+    comments?: string;
   };
 }
 
@@ -40,7 +40,7 @@ export default function Header({ type, userProfile, userPost }: HeaderProps) {
       title={userPost.title}
       login={userPost.login}
       date={userPost.date}
-      comment={userPost.comment}
+      comment={userPost.comments}
     />
   )
 
