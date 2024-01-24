@@ -2,7 +2,7 @@ import { Issue } from "@/types/github";
 import { format } from 'date-fns';
 
 export default function Card({ post }: { post: Issue }) {
-  const formattedCreatedAt = format(new Date(post.created_at), 'dd/MM');
+  const formattedCreatedAt = format(new Date(post.created_at), 'dd/MM/yy');
 
   return (
     <div className="w-full flex flex-col p-8 bg-base-post rounded-lg hover:border-base-label hover:border-2">
@@ -13,8 +13,8 @@ export default function Card({ post }: { post: Issue }) {
           <p className="text-base-span text-sm text-nowrap">{formattedCreatedAt}</p>
         </div>
       </div>
-      <div className="flex pt-5 max-h-32">
-        <p className="text-base-text text-base text-justify text-ellipsis overflow-hidden">{post.body}
+      <div className="flex pt-5 max-h-36">
+        <p className="text-base-text text-base text-justify text-ellipsis overflow-hidden">{post.body}...
         </p>
       </div>
     </div>
