@@ -24,10 +24,6 @@ export default async function PostInfo({ post, profile }: { post: Issue, profile
           <CaretLeft size={12} className='text-brand-blue' weight='bold' />
           <p className='text-brand-blue text-xs font-bold'>VOLTAR</p>
         </Link>
-        <Link className="flex hover:underline hover:text-brand-blue gap-2" href={'https://github.com/'}>
-          <span className='text-brand-blue font-bold text-xs'>GITHUB</span>
-          <ArrowSquareOut size={12} className='text-brand-blue' weight='bold' />
-        </Link>
       </div>
       <div className="w-full flex flex-row pb-2">
         <p className='text-base-title text-2xl font-medium'>
@@ -48,9 +44,14 @@ export default async function PostInfo({ post, profile }: { post: Issue, profile
 
         <div className="flex gap-2 justify-center items-center">
           <ChatCircle size={18} weight="fill" className='text-base-label' />
-          <p className='text-base-span text-base'>{post.comments_url.length} comentar{post.comments_url.length > 1 ? 'io' : 'ões'}</p>
-          <p className='text-base-span text-base'>comentários</p>
+          <p className='text-base-span text-base'>{post.comments_url.length} comentár{post.comments_url.length > 1 ? 'io' : 'ios'}</p>
         </div>
+      </div>
+      <div className="flex">
+        <Link className="flex hover:underline hover:text-brand-blue gap-2" href={'https://github.com/'}>
+          <span className='text-brand-blue font-bold text-xs'>GITHUB</span>
+          <ArrowSquareOut size={12} className='text-brand-blue' weight='bold' />
+        </Link>
       </div>
     </div>
   )
