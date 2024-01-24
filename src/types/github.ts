@@ -1,6 +1,9 @@
 import { ReactNode } from "react";
 
 export interface User {
+  body: string;
+  company: string | undefined;
+  name: string;
   login: string;
   id: number;
   node_id: string;
@@ -9,7 +12,7 @@ export interface User {
   url: string;
   html_url: string;
   followers_url: string;
-  following_url: string;
+  following_url?: string;
   gists_url: string;
   starred_url: string;
   subscriptions_url: string;
@@ -35,6 +38,7 @@ interface Reactions {
 }
 
 export interface Issue {
+  login: ReactNode;
   formattedCreatedAt: ReactNode;
   url: string;
   repository_url: string;

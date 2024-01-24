@@ -1,25 +1,15 @@
 import Image from 'next/image';
 import background from '../../assets/background.svg';
+import { Issue, User } from '../../types/github';
 import PostInfo from '../PostInfo';
 import Profile from '../Profile';
 
 export interface HeaderProps {
   type?: 'blog' | 'post';
-  userProfile?: {
-    avatar_url: string;
-    name: string;
-    login: string;
-    followers: number;
-    company?: string;
-    bio?: string;
-  };
-  userPost?: {
-    title: string;
-    login: string;
-    created_at: number;
-    comments_url?: string;
-  };
+  userProfile?: User;
+  userPost?: Issue & User
 }
+
 
 export default function Header({ type, userProfile, userPost }: HeaderProps) {
   const profileContent = userProfile && (
@@ -27,22 +17,13 @@ export default function Header({ type, userProfile, userPost }: HeaderProps) {
       avatar_url={userProfile.avatar_url}
       name={userProfile.name}
       username={userProfile.login}
-      followers={userProfile.followers}
+      followers={userProfile.followers_url}
       company={userProfile.company}
-      bio={userProfile.bio}
+      body={userProfile.body}
     />
   );
 
-  const postContent = userPost && (
-    <PostInfo
-      title={userPost.title}
-      username={userPost.login}
-      created_at={userPost.created_at}
-      comments_url={userPost.comments_url}
-    />
-  )
-
-  const content = type === 'post' ? postContent : profileContent;
+  const content = type === 'post' ? <PostInfo post={userPost} profile={userProfile} /> : profileContent;
 
   return (
     <header className="w-full flex justify-center items-center">
