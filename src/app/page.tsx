@@ -14,7 +14,7 @@ async function getUser(username: string) {
 export default async function Home() {
   const userProfile = await getUser(GITHUB_USERNAME)
   const userPost = await getIssues()
-  const posts = 6;
+  console.log(userPost.length)
 
   if (!userProfile && !userPost) {
     return <div className="flex justify-center items-center m-96">
@@ -25,7 +25,7 @@ export default async function Home() {
   return (
     <>
       <Header type="blog" userProfile={userProfile} />
-      <div className="max-w-4xl w-full flex flex-col items-center justify-center">
+      <div className="max-w-4xl w-full flex flex-col items-center justify-center pb-11">
         <div className="w-full flex flex-col gap-3">
           <div className="flex flex-row justify-between">
             <h2 className="font-medium text-lg text-base-subtitle">Publicações</h2>
@@ -33,11 +33,13 @@ export default async function Home() {
           </div>
           <input type="text" placeholder="Buscar conteúdo" className="bg-base-input border-base-border px-4 py-3 rounded-md .placeholder-base-label::placeholder text-base-text font-normal text-base outline-none border focus:border-brand-blue" />
         </div>
-        {userPost && userPost.map((post) => (
-          <Link key={post.number} className="w-full grid grid-rows-3 grid-cols-2 justify-center mt-10 md:justify-between gap-8 md:gap-y-8" href={`/Post/${post.number}`}>
-            <Card post={post} />
-          </Link>
-        ))}
+        <div className="flex flex-row gap-8 md:gap-y-8">
+          {userPost && userPost.map((post) => (
+            <Link key={post.number} className="w-full flex justify-center mt-10 md:justify-between" href={`/Post/${post.number}`}>
+              <Card post={post} />
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   )

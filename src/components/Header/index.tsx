@@ -16,14 +16,12 @@ export interface HeaderProps {
   userPost?: {
     title: string;
     login: string;
-    date: string;
-    comments?: string;
+    created_at: number;
+    comments_url?: string;
   };
 }
 
 export default function Header({ type, userProfile, userPost }: HeaderProps) {
-  console.log(userProfile)
-
   const profileContent = userProfile && (
     <Profile
       avatar_url={userProfile.avatar_url}
@@ -34,13 +32,13 @@ export default function Header({ type, userProfile, userPost }: HeaderProps) {
       bio={userProfile.bio}
     />
   );
-  console.log(userPost)
+
   const postContent = userPost && (
     <PostInfo
       title={userPost.title}
-      login={userPost.login}
-      date={userPost.date}
-      comment={userPost.comments}
+      username={userPost.login}
+      created_at={userPost.created_at}
+      comments_url={userPost.comments_url}
     />
   )
 

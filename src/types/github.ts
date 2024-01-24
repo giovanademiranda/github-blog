@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface User {
   login: string;
   id: number;
@@ -33,6 +35,7 @@ interface Reactions {
 }
 
 export interface Issue {
+  formattedCreatedAt: ReactNode;
   url: string;
   repository_url: string;
   labels_url: string;
@@ -44,12 +47,12 @@ export interface Issue {
   number: number;
   title: string;
   user: User;
-  labels: Array<any>; // Substitua `any` pelo tipo correto, se necessário
+  labels: Array<any>;
   state: string;
   locked: boolean;
   assignee: User;
   assignees: User[];
-  milestone: any; // Substitua `any` pelo tipo correto, se necessário
+  milestone: any;
   comments: number;
   created_at: string;
   updated_at: string;
@@ -59,9 +62,8 @@ export interface Issue {
   body: string;
   reactions: Reactions;
   timeline_url: string;
-  performed_via_github_app: any; // Substitua `any` pelo tipo correto, se necessário
+  performed_via_github_app: any;
   state_reason: string | null;
 }
 
-// Tipo para o array de issues
 export type Issues = Issue[];

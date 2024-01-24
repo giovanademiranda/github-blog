@@ -48,8 +48,7 @@ export default async function PostInfo({ post, profile }: { post: Issue, profile
 
         <div className="flex gap-2 justify-center items-center">
           <ChatCircle size={18} weight="fill" className='text-base-label' />
-          <p className='text-base-span text-base'>{post.comments_url.length} comentar{post.comments_url.length > 1 ? 'io' : 'ões'}</p>
-          <p className='text-base-span text-base'>comentários</p>
+          <p className='text-base-span text-base'>{post.comments_url.length} comentár{post.comments_url.length > 1 ? 'io' : 'ios'}</p>
         </div>
       </div>
     </div>

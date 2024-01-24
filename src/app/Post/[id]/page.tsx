@@ -19,11 +19,11 @@ export default async function Post({ params }: { params: { id: string } }) {
             {post.body}
           </p>
           <div className="pt-8">
-            <h3 className="text-base text-brand-blue">{post.body}</h3>
-            <p className="text-base text-base-text">{post.body}</p>
+            <h3 className="text-base text-brand-blue text-justify">{post.body}</h3>
+            <p className="text-base text-base-text text-justify">{post.body}</p>
           </div>
           <div className="flex flex-col bg-base-post rounded-sm p-4 mt-8">
-            <p>{post.body}</p>
+            <p className="text-base text-base-title text-justify">{post.body}</p>
           </div>
         </div>
       </div >
