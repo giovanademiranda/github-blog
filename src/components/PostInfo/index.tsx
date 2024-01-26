@@ -15,8 +15,8 @@ export default async function PostInfo({ post, profile }: { post: Issue, profile
   const isValidDate = new Date(post.created_at).toString() !== 'Invalid Date';
   const formattedCreatedAt = isValidDate ? format(new Date(post.created_at), 'dd/MM/yy') : 'Data inválida';
 
-  const ProfileUser = await UserProfile(GITHUB_USERNAME)
-  if (!ProfileUser) {
+  const profileUser = await UserProfile(GITHUB_USERNAME)
+  if (!profileUser) {
     return <div className="flex justify-center items-center m-96">
       <SpinnerGap className="rotate-45 animate-spin" size={64} weight="bold" />
     </div>
@@ -43,10 +43,10 @@ export default async function PostInfo({ post, profile }: { post: Issue, profile
           {post.title}
         </p>
       </div>
-      <div className="flex flex-row gap-72">
+      <div className="flex flex-row gap-60">
         <div className="flex gap-2 justify-center items-center">
           <GithubLogo size={18} weight='fill' className='text-base-label' />
-          <p className='text-base-span text-base'>{profile.login}</p>
+          <p className='text-base-span text-base'>{profileUser.login}</p>
         </div>
 
         <div className="flex gap-2 justify-center items-center">

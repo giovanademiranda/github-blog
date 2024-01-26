@@ -46,7 +46,7 @@ export const getIssue = async (id: string): Promise<Issue> => {
   }
 }
 
-export const searchIssues = async (repo: string, term: number) => {
+export const searchIssues = async (repo: string, term: string): Promise<{ items: Issue[] }> => {
   try {
     const query = encodeURIComponent(`${term} repo:${repo}`);
     const response = await fetch(`${GITHUB_API_URL}/search/issues?q=${query}`, { headers, cache: 'no-cache' });

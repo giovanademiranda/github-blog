@@ -7,7 +7,7 @@ import Profile from '../Profile';
 export interface HeaderProps {
   type?: 'blog' | 'post';
   userProfile?: User;
-  userPost?: Issue & User
+  userPost?: Issue;
 }
 
 
