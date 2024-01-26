@@ -1,5 +1,6 @@
 import Card from "@/components/Card";
 import Header from "@/components/Header";
+import Input from "@/components/Input";
 import { SpinnerGap } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { getIssues, getUserProfile } from "./api/services";
@@ -11,10 +12,13 @@ async function getUser(username: string) {
   return profileData
 }
 
-export default async function Home() {
+export default async function Home({ searchParams }: { searchParams: { filter: string } }) {
   const userProfile = await getUser(GITHUB_USERNAME)
-  const userPost = await getIssues()
-  console.log(userPost.length)
+  const userPost = await getIssues(searchParams.filter)
+
+  function handleSearchResults(searchTerm: string) {
+    const filteredPosts = userPost.filter((post) => post.title.toLowerCase().includes(searchTerm.toLowerCase()));
+  }
 
   if (!userProfile && !userPost) {
     return <div className="flex justify-center items-center m-96">
@@ -31,7 +35,9 @@ export default async function Home() {
             <h2 className="font-medium text-lg text-base-subtitle">Publicações</h2>
             <p className="text-sm text-base-span">{userPost.length} publicaç{userPost.length > 1 ? 'ões' : 'ão'}</p>
           </div>
-          <input type="text" placeholder="Buscar conteúdo" className="bg-base-input border-base-border px-4 py-3 rounded-md .placeholder-base-label::placeholder text-base-text font-normal text-base outline-none border focus:border-brand-blue" />
+          <div className="w-full">
+            <Input onSearch={handleSearchResults} />
+          </div>
         </div>
         <div className="flex flex-row gap-8 md:gap-y-8">
           {userPost && userPost.map((post) => (

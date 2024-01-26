@@ -12,7 +12,7 @@ export interface HeaderProps {
 
 
 export default function Header({ type, userProfile, userPost }: HeaderProps) {
-  const content = type === 'post' ? <PostInfo post={userPost} profile={userProfile} /> : <Profile profile={userProfile} />;
+  const content = type === 'post' ? <PostInfo post={userPost || {} as Issue} profile={userProfile ?? {} as User} /> : <Profile profile={userProfile ?? {} as User} />;
 
   return (
     <header className="w-full flex justify-center items-center">

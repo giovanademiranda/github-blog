@@ -58,7 +58,7 @@ export interface Issue {
   assignee: User;
   assignees: User[];
   milestone: any;
-  comments: number;
+  comments: string;
   created_at: string;
   updated_at: string;
   closed_at: string | null;
