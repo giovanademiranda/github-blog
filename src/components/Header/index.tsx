@@ -7,23 +7,12 @@ import Profile from '../Profile';
 export interface HeaderProps {
   type?: 'blog' | 'post';
   userProfile?: User;
-  userPost?: Issue & User
+  userPost?: Issue;
 }
 
 
 export default function Header({ type, userProfile, userPost }: HeaderProps) {
-  const profileContent = userProfile && (
-    <Profile
-      avatar_url={userProfile.avatar_url}
-      name={userProfile.name}
-      username={userProfile.login}
-      followers={userProfile.followers_url}
-      company={userProfile.company}
-      body={userProfile.body}
-    />
-  );
-
-  const content = type === 'post' ? <PostInfo post={userPost} profile={userProfile} /> : profileContent;
+  const content = type === 'post' ? <PostInfo post={userPost || {} as Issue} profile={userProfile ?? {} as User} /> : <Profile profile={userProfile ?? {} as User} />;
 
   return (
     <header className="w-full flex justify-center items-center">

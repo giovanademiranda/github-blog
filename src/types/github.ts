@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface User {
-  body: string;
+  bio: string;
   company: string | undefined;
   name: string;
   login: string;
@@ -11,6 +11,7 @@ export interface User {
   gravatar_id: string;
   url: string;
   html_url: string;
+  followers: number;
   followers_url: string;
   following_url?: string;
   gists_url: string;
@@ -57,7 +58,7 @@ export interface Issue {
   assignee: User;
   assignees: User[];
   milestone: any;
-  comments: number;
+  comments: string;
   created_at: string;
   updated_at: string;
   closed_at: string | null;
