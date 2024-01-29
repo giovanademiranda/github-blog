@@ -16,9 +16,9 @@ export default function Header({ type, userProfile, userPost }: HeaderProps) {
 
   return (
     <header className="w-full flex justify-center items-center">
-      <div className='w-full flex flex-col items-center justify-center'>
-        <Image src={background} alt="Background" />
-        <div className="flex justify-center items-center relative -top-24">
+      <div className='w-full md:flex flex-col items-center justify-center'>
+        <Image src={background} alt="Background" className='md:flex hidden' />
+        <div className="flex justify-center items-center relative md:-top-24">
           {content}
         </div>
       </div>
