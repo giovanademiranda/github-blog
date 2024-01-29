@@ -33,7 +33,11 @@ export default async function Home({ searchParams }: { searchParams: { filter: s
         </div>
         <div className="grid grid-cols-2 grid-rows-3 gap-8 md:gap-y-8">
           {userPosts.items.map((post) => (
-            <Link key={post.number} className="w-full flex justify-center mt-10 md:justify-between" href={`/Post/${post.number}`}>
+            <Link
+              data-cy='post'
+              key={post.number}
+              className="w-full flex justify-center mt-10 md:justify-between"
+              href={`/Post/${post.number}`}>
               <Card post={post} />
             </Link>
           ))}
