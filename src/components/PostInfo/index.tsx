@@ -39,24 +39,24 @@ export default async function PostInfo({ post, profile }: { post: Issue, profile
         </div>
       </div>
       <div className="w-full flex flex-row pb-2">
-        <p className='text-base-title text-2xl font-medium'>
+        <p className='text-base-title text-lg md:text-2xl font-medium'>
           {post.title}
         </p>
       </div>
-      <div className="flex flex-row gap-60">
-        <div className="flex gap-2 justify-center items-center">
+      <div className="flex flex-col md:flex-row gap-2 md:gap-60">
+        <div className="flex gap-2 justify-start md:justify-center items-center">
           <GithubLogo size={18} weight='fill' className='text-base-label' />
-          <p className='text-base-span text-base'>{profileUser.login}</p>
+          <p className='text-base-span text-sm md:text-base'>{profileUser.login}</p>
         </div>
 
-        <div className="flex gap-2 justify-center items-center">
+        <div className="flex gap-2 justify-start md:justify-center items-center">
           <Calendar size={18} weight='fill' className='text-base-label' />
-          <span className='text-base-span text-base'>{formattedCreatedAt}</span>
+          <span className='text-base-span text-sm md:text-base'>{formattedCreatedAt}</span>
         </div>
 
-        <div className="flex gap-2 justify-center items-center">
+        <div className="flex gap-2 justify-start md:justify-center items-center">
           <ChatCircle size={18} weight="fill" className='text-base-label' />
-          <p className='text-base-span text-base'>{post.comments?.length} comentár{post.comments?.length > 1 ? 'ios' : 'io'}</p>
+          <p className='text-base-span text-sm md:text-base'>{post.comments?.length} comentár{post.comments?.length > 1 ? 'ios' : 'io'}</p>
         </div>
       </div>
     </div>
