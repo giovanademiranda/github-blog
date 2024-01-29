@@ -54,6 +54,10 @@ export default async function Profile({ profile }: { profile: User }) {
         </div>
 
         <div className="flex">
+          <Link
+            data-cy='github-link'
+            className="flex gap-2 justify-end hover:underline hover:text-brand-blue" href={`https://github.com/${profile.login}`}>
+            <span className='text-brand-blue font-bold text-xs'>GITHUB</span>
           <Link className="flex gap-2 justify-end hover:underline hover:text-brand-blue" href={`https://github.com/${profile.login}`}>
             <span className='text-brand-blue md:font-bold text-xs'>GITHUB</span>
             <ArrowSquareOut size={12} className='text-brand-blue font-bold' weight='bold' />

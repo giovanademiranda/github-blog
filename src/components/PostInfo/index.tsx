@@ -26,13 +26,13 @@ export default async function PostInfo({ post, profile }: { post: Issue, profile
     <div className="flex flex-col w-full justify-center bg-base-profile rounded-lg p-6">
       <div className="w-full flex flex-row justify-between items-center pb-5">
         <div className="flex">
-          <Link className="flex gap-2 hover:underline hover:text-brand-blue" href={'/'}>
+          <Link data-cy='back-button' className="flex gap-2 hover:underline hover:text-brand-blue" href={'/'}>
             <CaretLeft size={12} className='text-brand-blue' weight='bold' />
             <p className='text-brand-blue text-xs font-bold'>VOLTAR</p>
           </Link>
         </div>
         <div className="flex">
-          <Link className="flex hover:underline hover:text-brand-blue gap-2" href={'https://github.com/'}>
+          <Link data-cy='github-link-issue' className="flex hover:underline hover:text-brand-blue gap-2" href={`https://github.com/giovanademiranda/github-blog/issues/${post.number}`}>
             <span className='text-brand-blue font-bold text-xs'>GITHUB</span>
             <ArrowSquareOut size={12} className='text-brand-blue' weight='bold' />
           </Link>

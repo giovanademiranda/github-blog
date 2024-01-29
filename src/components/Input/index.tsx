@@ -23,6 +23,7 @@ export default function Input() {
     <>
       <form onSubmit={handleSearch}>
         <input
+          data-cy='search-input'
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           type="text"
@@ -31,7 +32,11 @@ export default function Input() {
       </form>
       <div className="flex flex-row gap-8 md:gap-y-8">
         {searchResults.map((post) => (
-          <Link key={post.number} className="w-full flex justify-center mt-10 md:justify-between" href={`/Post/${post.number}`}>
+          <Link
+            data-cy='post-search'
+            key={post.number}
+            className="w-full flex justify-center mt-10 md:justify-between"
+            href={`/Post/${post.number}`}>
             <Card post={post} />
           </Link>
         ))}
