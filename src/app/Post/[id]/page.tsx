@@ -16,7 +16,7 @@ export default async function Post({ params }: { params: { id: string } }) {
     <>
       <Header type="post" userPost={post} />
       <div className="max-w-3xl w-full flex items-center justify-center">
-        <div className="w-full flex flex-col gap-3">
+        <div className="w-full flex flex-col gap-3 md:p-0 p-9">
           <p className="text-base text-base-text text-justify">
             {post.body}
           </p>
